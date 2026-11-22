@@ -1,0 +1,52 @@
+{
+  "pipeline": "A",
+  "source_experiment": "E45",
+  "selection_rule": "en düşük doğrulama MAE; eşitlikte doğrulama RMSE, ortalama işlem süresi, işlem adımı sayısı",
+  "validation_MAE": 1.2,
+  "development_MAE": 0.7,
+  "config": {
+    "intensity": {
+      "method": "histogram_equalization"
+    },
+    "filters": [
+      {
+        "method": "gaussian",
+        "ksize": 9
+      }
+    ],
+    "segmentation": {
+      "method": "otsu"
+    },
+    "morphology": [
+      {
+        "op": "erosion",
+        "ksize": 7,
+        "shape": "ellipse"
+      }
+    ],
+    "fill_holes": true,
+    "separation": {
+      "method": "none"
+    },
+    "min_area": 300
+  },
+  "baseline": {
+    "source_experiment": "E01",
+    "config": {
+      "name": "Baseline",
+      "intensity": {
+        "method": "none"
+      },
+      "filters": [],
+      "segmentation": {
+        "method": "otsu"
+      },
+      "morphology": [],
+      "fill_holes": false,
+      "separation": {
+        "method": "none"
+      },
+      "min_area": 50
+    }
+  }
+}

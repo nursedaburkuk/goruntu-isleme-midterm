@@ -1,0 +1,14 @@
+# Veri seti repoya yüklenmez (Ödev Bölüm 18.5)
+data/
+*.zip
+*.tif
+# Veri seti görüntülerinden üretilen şekiller repoya yüklenmez (Bölüm 18.5).
+# Yalnızca görüntü içermeyen grafikler repoda tutulur.
+figures/*
+!figures/fig_parameter_effects.png
+# Ödev dosyası
+*.docx
+# Python / Jupyter geçici dosyaları
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store

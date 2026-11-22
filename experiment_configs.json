@@ -1,0 +1,1236 @@
+{
+ "E01": {
+  "name": "Baseline",
+  "intensity": {
+   "method": "none"
+  },
+  "filters": [],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [],
+  "fill_holes": false,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 50
+ },
+ "E02": {
+  "intensity": {
+   "method": "none"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 5
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E03": {
+  "intensity": {
+   "method": "contrast_stretching",
+   "low_percentile": 1,
+   "high_percentile": 99.5
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 5
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E04": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 5
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E05": {
+  "intensity": {
+   "method": "clahe",
+   "clip_limit": 2.0,
+   "tile_grid": 8
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 5
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E06": {
+  "intensity": {
+   "method": "clahe",
+   "clip_limit": 4.0,
+   "tile_grid": 8
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 5
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E07": {
+  "intensity": {
+   "method": "histogram_matching",
+   "reference": "dev_t029"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 5
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E08": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E09": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 3
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E10": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 5
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E11": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E12": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "median",
+    "ksize": 5
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E13": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "median",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E14": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "laplacian_sharpen",
+    "amount": 1.0
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E15": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 5
+   },
+   {
+    "method": "unsharp_mask",
+    "ksize": 9,
+    "amount": 1.0
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E16": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E17": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "fixed",
+   "threshold": 100
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E18": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "fixed",
+   "threshold": 140
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E19": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "fixed",
+   "threshold": 180
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E20": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "fixed",
+   "threshold": 220
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E21": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "adaptive",
+   "type": "gaussian",
+   "block_size": 51,
+   "C": -20
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E22": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "adaptive",
+   "type": "gaussian",
+   "block_size": 101,
+   "C": -20
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E23": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "adaptive",
+   "type": "gaussian",
+   "block_size": 101,
+   "C": -40
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E24": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "triangle"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E25": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "kmeans",
+   "k": 2
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E26": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [],
+  "fill_holes": false,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E27": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E28": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 3,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E29": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E30": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "dilation",
+    "ksize": 3,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E31": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "dilation",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E32": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 3,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E33": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E34": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 9,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E35": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "closing",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E36": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "closing",
+    "ksize": 9,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E37": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   },
+   {
+    "op": "closing",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E38": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "closing",
+    "ksize": 5,
+    "shape": "ellipse"
+   },
+   {
+    "op": "opening",
+    "ksize": 5,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E39": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E40": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "distance_watershed",
+   "min_distance": 15
+  },
+  "min_area": 300
+ },
+ "E41": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "distance_watershed",
+   "min_distance": 25
+  },
+  "min_area": 300
+ },
+ "E42": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "distance_watershed",
+   "min_distance": 35
+  },
+  "min_area": 300
+ },
+ "E43": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 50
+ },
+ "E44": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 150
+ },
+ "E45": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 300
+ },
+ "E46": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 500
+ },
+ "E47": {
+  "intensity": {
+   "method": "histogram_equalization"
+  },
+  "filters": [
+   {
+    "method": "gaussian",
+    "ksize": 9
+   }
+  ],
+  "segmentation": {
+   "method": "otsu"
+  },
+  "morphology": [
+   {
+    "op": "erosion",
+    "ksize": 7,
+    "shape": "ellipse"
+   }
+  ],
+  "fill_holes": true,
+  "separation": {
+   "method": "none"
+  },
+  "min_area": 800
+ }
+}

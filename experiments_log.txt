@@ -1,0 +1,53 @@
+Histogram eşleme referansı: dev t029
+E02 Yoğunluk: orijinal                            MAE=11.10 RMSE=11.40 Bias=-11.10
+E03 Yoğunluk: contrast stretching                 MAE=9.00 RMSE=9.57 Bias=-9.00
+E04 Yoğunluk: histogram eşitleme                  MAE=1.10 RMSE=1.23 Bias=+0.50
+E05 Yoğunluk: CLAHE clip 2                        MAE=7.40 RMSE=7.81 Bias=-7.40
+E06 Yoğunluk: CLAHE clip 4                        MAE=6.20 RMSE=6.37 Bias=-6.20
+E07 Yoğunluk: histogram eşleme                    MAE=12.20 RMSE=12.37 Bias=-12.20
+  -> S1 Yoğunluk en iyi: E04
+E08 Filtre: yok                                   MAE=1.70 RMSE=1.82 Bias=-0.30
+E09 Filtre: Gaussian 3x3                          MAE=1.70 RMSE=2.59 Bias=+1.30
+E10 Filtre: Gaussian 5x5                          MAE=1.10 RMSE=1.23 Bias=+0.50
+E11 Filtre: Gaussian 9x9                          MAE=1.00 RMSE=1.18 Bias=+0.40
+E12 Filtre: Median 5x5                            MAE=22.40 RMSE=24.73 Bias=+22.40
+E13 Filtre: Median 9x9                            MAE=21.30 RMSE=22.43 Bias=+21.30
+E14 Filtre: Laplace keskinleştirme                MAE=3.30 RMSE=3.78 Bias=-3.30
+E15 Filtre: Gaussian 5x5 + unsharp mask           MAE=1.60 RMSE=2.05 Bias=+1.40
+  -> S2 Filtre en iyi: E11
+E16 Segmentasyon: Otsu                            MAE=1.00 RMSE=1.18 Bias=+0.40
+E17 Segmentasyon: sabit eşik T=100                MAE=14.20 RMSE=16.54 Bias=+14.20
+E18 Segmentasyon: sabit eşik T=140                MAE=1.10 RMSE=1.23 Bias=+0.30
+E19 Segmentasyon: sabit eşik T=180                MAE=1.30 RMSE=1.87 Bias=-1.30
+E20 Segmentasyon: sabit eşik T=220                MAE=5.40 RMSE=5.64 Bias=-5.40
+E21 Segmentasyon: adaptif blok=51 C=-20           MAE=1.10 RMSE=1.45 Bias=+0.90
+E22 Segmentasyon: adaptif blok=101 C=-20          MAE=2.50 RMSE=2.67 Bias=+2.50
+E23 Segmentasyon: adaptif blok=101 C=-40          MAE=1.30 RMSE=1.45 Bias=+1.30
+E24 Segmentasyon: triangle                        MAE=1.20 RMSE=1.41 Bias=+0.60
+E25 Segmentasyon: K-means k=2                     MAE=1.00 RMSE=1.18 Bias=+0.40
+  -> S3 Segmentasyon en iyi: E16
+E26 Morfoloji: yok (delik doldurma yok)           MAE=1.10 RMSE=1.23 Bias=+0.30
+E27 Morfoloji: yalnızca delik doldurma            MAE=1.10 RMSE=1.23 Bias=+0.30
+E28 Morfoloji: erosion 3x3                        MAE=1.10 RMSE=1.23 Bias=+0.30
+E29 Morfoloji: erosion 7x7                        MAE=0.70 RMSE=0.95 Bias=+0.50
+E30 Morfoloji: dilation 3x3                       MAE=1.30 RMSE=1.45 Bias=+0.30
+E31 Morfoloji: dilation 7x7                       MAE=2.10 RMSE=2.59 Bias=+2.10
+E32 Morfoloji: opening 3x3                        MAE=1.10 RMSE=1.23 Bias=+0.30
+E33 Morfoloji: opening 5x5                        MAE=1.00 RMSE=1.18 Bias=+0.40
+E34 Morfoloji: opening 9x9                        MAE=1.00 RMSE=1.26 Bias=+1.00
+E35 Morfoloji: closing 5x5                        MAE=1.20 RMSE=1.48 Bias=+0.20
+E36 Morfoloji: closing 9x9                        MAE=1.40 RMSE=1.55 Bias=+0.00
+E37 Morfoloji: opening 5 -> closing 5             MAE=1.30 RMSE=1.38 Bias=+0.10
+E38 Morfoloji: closing 5 -> opening 5             MAE=1.30 RMSE=1.38 Bias=+0.10
+  -> S4 Morfoloji en iyi: E29
+E39 Ayırma: yok                                   MAE=0.70 RMSE=0.95 Bias=+0.50
+E40 Ayırma: distance + watershed min_dist=15      MAE=1.40 RMSE=1.61 Bias=+0.40
+E41 Ayırma: distance + watershed min_dist=25      MAE=0.80 RMSE=1.00 Bias=+0.40
+E42 Ayırma: distance + watershed min_dist=35      MAE=0.80 RMSE=1.00 Bias=+0.40
+  -> S5 Nesne ayırma en iyi: E39
+E43 Min alan: 50 px                               MAE=1.80 RMSE=2.19 Bias=+1.80
+E44 Min alan: 150 px                              MAE=1.00 RMSE=1.34 Bias=+1.00
+E45 Min alan: 300 px                              MAE=0.70 RMSE=0.95 Bias=+0.50
+E46 Min alan: 500 px                              MAE=1.50 RMSE=1.58 Bias=-0.30
+E47 Min alan: 800 px                              MAE=1.70 RMSE=1.92 Bias=-0.70
+  -> S6 Min alan en iyi: E45

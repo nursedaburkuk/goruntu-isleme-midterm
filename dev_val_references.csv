@@ -1,0 +1,16 @@
+group,sequence,frame,filename,reference_count
+development,01,0,01/t000.tif,23
+development,01,2,01/t002.tif,23
+development,01,29,01/t029.tif,24
+development,01,32,01/t032.tif,24
+development,01,44,01/t044.tif,24
+development,01,52,01/t052.tif,21
+development,01,54,01/t054.tif,21
+development,01,55,01/t055.tif,21
+development,01,81,01/t081.tif,20
+development,01,87,01/t087.tif,21
+validation,01,12,01/t012.tif,23
+validation,01,21,01/t021.tif,24
+validation,01,62,01/t062.tif,21
+validation,01,70,01/t070.tif,21
+validation,01,72,01/t072.tif,21

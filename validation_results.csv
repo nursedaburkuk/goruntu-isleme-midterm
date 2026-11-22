@@ -1,0 +1,5 @@
+Pipeline,Deney ID,Aday,Yoğunluk,Filtre,Segment.,Morfoloji,min_area,Dev MAE,Val MAE,Val RMSE,Val Bias,Val Exact Acc,Ort. süre (s),n_steps,Seçildi
+Baseline,E01,False,Yok (orijinal),Yok,Otsu,Yok,50,5.1,3.2,5.138,-2.8,0.2,0.0062,1,False
+A,E45,True,Histogram eşitleme,Gaussian 9x9,Otsu,Erosion 7x7 -> Delik doldurma,300,0.7,1.2,1.265,0.8,0.0,0.0381,5,True
+B,E41,True,Histogram eşitleme,Gaussian 9x9,Otsu,Erosion 7x7 -> Delik doldurma -> Distance transform + watershed (min_dist=25),300,0.8,1.2,1.265,0.8,0.0,0.208,6,False
+C,E21,True,Histogram eşitleme,Gaussian 9x9,"Adaptif gaussian (blok=51, C=-20)",Opening 5x5 -> Delik doldurma,300,1.1,2.2,2.49,2.2,0.2,0.0452,5,False
