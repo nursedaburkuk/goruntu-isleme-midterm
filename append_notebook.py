@@ -73,6 +73,21 @@ SECTIONS = {
              "         ('(d) Zorlayıcı: çok soluk çekirdekler', '02', 72, (0, 480, 0, 420))]\n"
              "fig_examples(D, items, fp['config'], fp['baseline']['config'], 'figures/fig6_examples.png')"),
     ],
+    "report": [
+        md("## 16. Rapor şekilleri\n\nRaporda sayfa yerini azaltmak için Şekil 2, 3 ve 6'nın kompakt sürümleri kullanılmıştır. "
+           "Yöntem ve sonuçlar değişmez. Bu şekiller veri seti görüntüsü içerdiği için repoya yüklenmez."),
+        code("from experiments import choose_hist_match_reference\n"
+             "from figures_report import fig2_compact, fig3_compact, fig6_compact\n"
+             "choose_hist_match_reference(D, refs[refs.group == 'development'] if 'refs' in dir() else "
+             "pd.read_csv('dev_val_references.csv', dtype={'sequence': str}).query(\"group == 'development'\"))\n"
+             "fp = json.load(open('final_pipeline.json'))\n"
+             "fig2_compact(D, 52, ['E02', 'E03', 'E04', 'E05', 'E06', 'E07'], 'figures/report_fig2.png')\n"
+             "fig3_compact(D, 52, ['E16', 'E18', 'E21', 'E24', 'E25'], ['E26', 'E29', 'E31', 'E34', 'E36'], 'figures/report_fig3.png')\n"
+             "fig6_compact(D, [('(a) Başarılı', '02', 17, None), ('(b) Hatalı', '02', 75, None),\n"
+             "                 ('(c) Zorlayıcı: bölünen hücre', '02', 35, (0, 440, 440, 900)),\n"
+             "                 ('(d) Zorlayıcı: çok soluk çekirdekler', '02', 72, (0, 440, 0, 440))],\n"
+             "             fp['config'], fp['baseline']['config'], 'figures/report_fig6.png')"),
+    ],
 }
 
 stage = sys.argv[1]
