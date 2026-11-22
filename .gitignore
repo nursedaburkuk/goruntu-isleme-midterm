@@ -6,6 +6,8 @@ data/
 # Yalnızca görüntü içermeyen grafikler repoda tutulur.
 figures/*
 !figures/fig_parameter_effects.png
+!figures/fig1_flowchart.png
+!figures/fig5_temporal.png
 # Ödev dosyası
 *.docx
 # Python / Jupyter geçici dosyaları
