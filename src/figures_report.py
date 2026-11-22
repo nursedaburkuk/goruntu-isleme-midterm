@@ -67,3 +67,16 @@ def fig6_compact(data_dir, items, cfg, baseline_cfg, out):
         a.set_title(f"{label}\n{seq}/t{f:03d}: ref {n_ref}, nihai {c} ({c - n_ref:+d}),\nbaseline {cb} ({cb - n_ref:+d})",
                     fontsize=8.5)
     plt.tight_layout(w_pad=0.4); plt.savefig(out, dpi=110); plt.close()
+
+
+def fig3_one_row(data_dir, frame, items, out):
+    """Şekil 3 tek satır: items = (deney ID, gösterilecek adım) listesi."""
+    cfgs, ex = _load()
+    img = read_gray(data_dir, "01", frame)
+    fig, ax = plt.subplots(1, len(items), figsize=(2.9 * len(items), 3.7))
+    for a, (eid, key) in zip(ax, items):
+        c, st = run_pipeline(img, cfgs[eid], return_steps=True)
+        name = ex.loc[eid, "Deney"].split(": ", 1)[-1]
+        a.imshow(st[key], cmap="gray"); a.axis("off")
+        a.set_title(f"{eid}: {name}\nsayım {c}, dev MAE {ex.loc[eid, 'Count MAE']:.1f}", fontsize=8.5)
+    plt.tight_layout(pad=1.0, w_pad=0.3, rect=(0, 0, 1, 0.97)); plt.savefig(out, dpi=110); plt.close()

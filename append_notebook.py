@@ -88,6 +88,12 @@ SECTIONS = {
              "                 ('(d) Zorlayıcı: çok soluk çekirdekler', '02', 72, (0, 440, 0, 440))],\n"
              "             fp['config'], fp['baseline']['config'], 'figures/report_fig6.png')"),
     ],
+    "report2": [
+        code("# Raporun son sürümünde Şekil 3 tek satır olarak kullanılmıştır.\n"
+             "from figures_report import fig3_one_row\n"
+             "fig3_one_row(D, 52, [('E16', 'segmentation'), ('E18', 'segmentation'), ('E21', 'segmentation'),\n"
+             "                     ('E26', 'cleaned'), ('E29', 'cleaned'), ('E31', 'cleaned')], 'figures/report_fig3.png')"),
+    ],
 }
 
 stage = sys.argv[1]
