@@ -76,7 +76,7 @@ Not: `test_predictions_locked.csv` repoda bulunduğu için 5. adım bu dosyayı 
 
 ## Nihai pipeline
 
-Histogram eşitleme → Gaussian 9×9 → Otsu eşikleme → delik doldurma → erosion 7×7 (elips) → 300 pikselden küçük bileşenlerin kaldırılması → 8-komşuluklu bağlı bileşen analizi ile sayım. Konfigürasyon `final_pipeline.json` dosyasındadır (deney E45, Pipeline A).
+Histogram eşitleme → Gaussian 9×9 → Otsu eşikleme → erosion 7×7 (elips) → delik doldurma → 300 pikselden küçük bileşenlerin kaldırılması → 8-komşuluklu bağlı bileşen analizi ile sayım. Konfigürasyon `final_pipeline.json` dosyasındadır (deney E45, Pipeline A).
 
 Baseline: gri seviye → Otsu → 8-komşuluklu bağlı bileşen analizi → 50 pikselden küçük bileşenlerin kaldırılması (deney E01).
 

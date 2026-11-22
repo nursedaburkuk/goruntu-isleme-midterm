@@ -36,7 +36,7 @@ SECTIONS = {
              "fig_temporal('test_results.csv', 'figures/fig5_temporal.png')\n"
              "items = [('(a) Başarılı: en düşük hata', '02', 17, None),\n"
              "         ('(b) Hatalı: en yüksek hata', '02', 75, None),\n"
-             "         ('(c) Zorlayıcı: temas eden çift ve bölünen hücre', '02', 35, (0, 350, 250, 900)),\n"
+             "         ('(c) Zorlayıcı: bölünen hücre ve düzensiz soluk çekirdek', '02', 35, (0, 350, 250, 900)),\n"
              "         ('(d) Zorlayıcı: çok soluk çekirdekler', '02', 72, (0, 480, 0, 420))]\n"
              "fig_examples(D, items, fp['config'], fp['baseline']['config'], 'figures/fig6_examples.png')\n"
              "for f in ['fig1_flowchart', 'fig4_stages', 'fig5_temporal', 'fig6_examples']:\n"
@@ -52,6 +52,26 @@ SECTIONS = {
              "                         ardışık_değişimler=d.astype(int).tolist(),\n"
              "                         ort_mutlak_değişim=round(d.abs().mean(), 2), en_büyük_sıçrama=int(d.abs().max())))\n"
              "temporal = pd.DataFrame(rows); temporal.to_csv('temporal_analysis.csv', index=False); temporal"),
+    ],
+    "analysis": [
+        md("## 15. Hata ayrıştırması (yalnızca analiz)\n\nNihai pipeline değiştirilmeden, her referans hücre "
+           "işaretinin hangi tahmin nesnesiyle örtüştüğü incelenir. Kaçırılan hücre, hiçbir nesneyle örtüşmeyen "
+           "referanstır; birleşmiş nesne, birden fazla referans içeren nesnedir; sahte nesne, hiçbir referans "
+           "içermeyen nesnedir. Sonuçlar `error_analysis.csv` dosyasına yazılır."),
+        code("from error_analysis import decompose_set\nfp = json.load(open('final_pipeline.json'))\n"
+             "ea = pd.concat([decompose_set(D, [12, 21, 62, 70, 72], fp['config'], '01').assign(group='validation'),\n"
+             "                decompose_set(D, [17, 18, 19, 20, 21, 35, 36, 37, 38, 39, 72, 73, 74, 75, 76], fp['config'], '02').assign(group='test')])\n"
+             "ea.to_csv('error_analysis.csv', index=False)\n"
+             "ea.groupby('group')[['reference', 'predicted', 'missed', 'merged_lost', 'false_positive']].sum()"),
+        code("# Şekil 1, 4 ve 6 düzeltilmiş etiketlerle yeniden üretilir (pipeline ve tahminler değişmez).\n"
+             "from figures_test import fig_flowchart, fig_stages, fig_examples\n"
+             "fig_flowchart('figures/fig1_flowchart.png')\n"
+             "fig_stages(D, '01', 52, fp['config'], 'figures/fig4_stages.png')\n"
+             "items = [('(a) Başarılı: en düşük hata', '02', 17, None),\n"
+             "         ('(b) Hatalı: en yüksek hata', '02', 75, None),\n"
+             "         ('(c) Zorlayıcı: bölünen hücre ve düzensiz soluk çekirdek', '02', 35, (0, 350, 250, 900)),\n"
+             "         ('(d) Zorlayıcı: çok soluk çekirdekler', '02', 72, (0, 480, 0, 420))]\n"
+             "fig_examples(D, items, fp['config'], fp['baseline']['config'], 'figures/fig6_examples.png')"),
     ],
 }
 
