@@ -1,18 +1,18 @@
 # Fluo-N2DH-GOWT1 Veri Setinde Klasik Görüntü İşleme ile Hücre Sayımı
 
-Sayısal Görüntü İşleme dersi yüksek lisans midterm ödevi. Nurseda Akgül, öğrenci numarası 244329048.
+Bu depo, Sayısal Görüntü İşleme dersi yüksek lisans ara sınav ödevi kapsamında hazırlanmıştır. Hazırlayan: Nurseda Akgül (244329048).
 
-## Projenin amacı
+## Çalışmanın Amacı
 
-Bu projede floresan mikroskopi görüntülerindeki hücre çekirdekleri, yalnızca klasik görüntü işleme yöntemleri kullanılarak sayılmıştır. Yoğunluk dönüşümleri, filtreler, segmentasyon yöntemleri ve morfolojik işlemler geliştirme kümesinde kontrollü deneylerle karşılaştırılmıştır. Üç aday pipeline doğrulama kümesinde değerlendirilmiş ve nihai pipeline doğrulama sonucuna göre seçilmiştir. Nihai pipeline ve baseline, test referansları okunmadan önce kilitlenmiş ve bağımsız test kümesinde değerlendirilmiştir.
+Bu çalışmada floresan mikroskopi görüntülerindeki hücre çekirdeklerinin yalnızca klasik görüntü işleme yöntemleri kullanılarak sayılması amaçlanmıştır. Yoğunluk dönüşümleri, filtreler, segmentasyon yöntemleri ve morfolojik işlemler geliştirme kümesinde kontrollü deneylerle karşılaştırılmıştır. Bu deneyler sonucunda belirlenen üç aday pipeline doğrulama kümesinde değerlendirilmiş ve nihai yöntem doğrulama sonuçlarına göre seçilmiştir. Nihai yöntem ile baseline yöntemi, test referanslarına erişilmeden önce kilitlenmiş ve ardından bağımsız test kümesinde değerlendirilmiştir.
 
-## Veri seti
+## Veri Seti
 
-- Veri seti: Cell Tracking Challenge, Fluo-N2DH-GOWT1 (GFP-GOWT1 fare embriyonik kök hücreleri), eğitim arşivi.
-- Resmî indirme bağlantısı: https://data.celltrackingchallenge.net/training-datasets/Fluo-N2DH-GOWT1.zip
-- Veri setinin görüntüleri ve referans etiketleri bu repoya yüklenmemiştir. Veri setinden üretilen görüntü içeren şekiller de repoya yüklenmemiş, raporda sunulmuştur.
+Çalışmada Cell Tracking Challenge kapsamında yayımlanan Fluo-N2DH-GOWT1 eğitim veri seti kullanılmıştır. Veri seti aşağıdaki resmî bağlantıdan indirilebilir:
 
-Zip dosyası indirilip repo klasöründe `data/` klasörüne açılmalıdır. Beklenen yapı şöyledir:
+https://data.celltrackingchallenge.net/training-datasets/Fluo-N2DH-GOWT1.zip
+
+Veri setine ait görüntüler ve referans etiketleri bu depoya yüklenmemiştir. Veri seti görüntülerinden üretilen şekiller de depoda yer almamakta olup teknik raporda sunulmuştur. İndirilen arşivin depo klasörü içinde `data/` klasörüne açılması gerekmektedir. Beklenen klasör yapısı aşağıda verilmiştir:
 
 ```
 data/Fluo-N2DH-GOWT1/01/t000.tif ... t091.tif
@@ -21,17 +21,13 @@ data/Fluo-N2DH-GOWT1/02/ ...
 data/Fluo-N2DH-GOWT1/02_GT/TRA/ ...
 ```
 
-## Random seed
+## Rastgele Seçim ve Seed Değeri
 
-Seed = öğrenci numarasının son 5 hanesi + 2026 = 29048 + 2026 = **31074**. Seçilen kareler `selected_frames.csv` dosyasındadır:
+Görüntü seçiminde kullanılan seed değeri, öğrenci numarasının son beş hanesine 2026 eklenerek 31074 olarak hesaplanmıştır. Bu değerle seçilen geliştirme kareleri 01 sekansının 0, 2, 29, 32, 44, 52, 54, 55, 81 ve 87 numaralı kareleridir. Doğrulama kareleri aynı sekansın 12, 21, 62, 70 ve 72 numaralı kareleridir. Test kümesi ise 02 sekansından alınan ve her biri ardışık beş kareden oluşan üç bloktan meydana gelmektedir: 17–21, 35–39 ve 72–76. Seçimin tüm ayrıntıları `selected_frames.csv` dosyasında yer almaktadır.
 
-- Geliştirme (Sequence 01): 0, 2, 29, 32, 44, 52, 54, 55, 81, 87
-- Doğrulama (Sequence 01): 12, 21, 62, 70, 72
-- Test (Sequence 02): B1 = 17–21, B2 = 35–39, B3 = 72–76
+## Yazılım Gereksinimleri
 
-## Yazılım gereksinimleri
-
-Python 3.13 ile çalıştırılmıştır. Kütüphaneler ve sürümleri `requirements.txt` dosyasındadır:
+Uygulamalar Python 3.13 ile gerçekleştirilmiştir. Kullanılan kütüphaneler ve sürümleri `requirements.txt` dosyasında listelenmiştir ve aşağıdaki komutla kurulabilir:
 
 ```
 pip install -r requirements.txt
@@ -39,7 +35,7 @@ pip install -r requirements.txt
 
 ## Çalıştırma
 
-### Jupyter
+Jupyter ortamında çalıştırmak için aşağıdaki adımlar izlenmelidir:
 
 ```
 git clone https://github.com/nursedaburkuk/goruntu-isleme-midterm.git
@@ -49,7 +45,7 @@ mkdir data && unzip Fluo-N2DH-GOWT1.zip -d data/
 jupyter notebook main.ipynb
 ```
 
-### Google Colab
+Google Colab ortamında ise aşağıdaki komutlar çalıştırıldıktan sonra `main.ipynb` açılmalı ve hücreler sırasıyla çalıştırılmalıdır:
 
 ```
 !git clone https://github.com/nursedaburkuk/goruntu-isleme-midterm.git
@@ -59,28 +55,15 @@ jupyter notebook main.ipynb
 !mkdir -p data && unzip -q Fluo-N2DH-GOWT1.zip -d data/
 ```
 
-Ardından `main.ipynb` açılır ve hücreler sırayla çalıştırılır.
+`main.ipynb` not defteri, ödevdeki tüm adımları sırasıyla yeniden üretmektedir. Not defteri hesaplamaları `src/` klasöründeki modüllerden ve kök klasördeki betiklerden çağırmaktadır. Aynı adımlar betikler aracılığıyla da şu sırayla çalıştırılabilir: görüntü seçimi için `src/data_selection.py`, kontrollü deneyler için `run_experiments.py`, aday pipeline'ların doğrulanması için `run_validation.py`, kilitli test tahminlerinin üretilmesi için `run_test_predictions.py` ve test değerlendirmesi için `run_test_evaluation.py`. Test tahmin betiği test referanslarını okumamaktadır. Ayrıca `test_predictions_locked.csv` dosyası mevcut olduğunda bu dosyayı yeniden üretmemektedir. Kilitli tahminlerin bağımsız olarak yeniden üretilmesi isteniyorsa bu dosyanın başka bir klasöre taşınması yeterlidir. Bu durumda aynı tahminler elde edilmektedir.
 
-### Çalıştırma sırası
+## Nihai Yöntem
 
-`main.ipynb` bütün adımları sırasıyla çalıştırır. Aynı işlemler betiklerle şu sırada da yapılabilir:
+Nihai pipeline sırasıyla histogram eşitleme, 9×9 Gaussian filtre, Otsu eşiklemesi, 7×7 eliptik yapılandırma elemanıyla erosion, delik doldurma, 300 pikselden küçük bileşenlerin kaldırılması ve 8-komşuluklu bağlı bileşen analizinden oluşmaktadır. Baseline yöntemi ise gri seviyeli görüntüye Otsu eşiklemesi ve 8-komşuluklu bağlı bileşen analizi uygulanmasıyla, 50 pikselden küçük bileşenler sayılmadan oluşturulmuştur. Her iki yöntemin tüm parametreleri `final_pipeline.json` dosyasında kayıtlıdır.
 
-1. `python src/data_selection.py`: görüntü seçimi, `selected_frames.csv`.
-2. Not defterindeki Bölüm 4–5 hücreleri: geliştirme ve doğrulama referansları, baseline.
-3. `python run_experiments.py`: 47 kontrollü deney, `experiments.csv` ve karşılaştırma şekilleri.
-4. `python run_validation.py`: aday pipeline'ların doğrulaması, `validation_results.csv` ve `final_pipeline.json`.
-5. `python run_test_predictions.py`: kilitli test tahminleri, `test_predictions_locked.csv`. Bu betik test referanslarını okumaz. Dosya zaten varsa yeniden üretmez.
-6. `python run_test_evaluation.py`: test değerlendirmesi, `test_results.csv`.
+## Sonuçların Özeti
 
-Not: `test_predictions_locked.csv` repoda bulunduğu için 5. adım bu dosyayı yeniden üretmez. Kilitli tahminleri bağımsız olarak yeniden üretmek için dosya başka bir klasöre taşınıp 5. adım çalıştırılabilir. Tahminler aynı çıkar.
-
-## Nihai pipeline
-
-Histogram eşitleme → Gaussian 9×9 → Otsu eşikleme → erosion 7×7 (elips) → delik doldurma → 300 pikselden küçük bileşenlerin kaldırılması → 8-komşuluklu bağlı bileşen analizi ile sayım. Konfigürasyon `final_pipeline.json` dosyasındadır (deney E45, Pipeline A).
-
-Baseline: gri seviye → Otsu → 8-komşuluklu bağlı bileşen analizi → 50 pikselden küçük bileşenlerin kaldırılması (deney E01).
-
-## Sonuçların özeti
+Doğrulama kümesinde (5 kare) baseline yönteminin ortalama mutlak hatası (MAE) 3,20, nihai pipeline'ın ise 1,20 olarak bulunmuştur. Bağımsız test kümesinde (15 kare) baseline yöntemi 7,47, nihai pipeline ise 2,87 MAE değerine ulaşmıştır. Nihai pipeline test kümesinde tüm karelerde gerçek sayının altında tahmin üretmiştir. Bu durum, daha karanlık olan 02 sekansındaki arka plana çok yakın yoğunluktaki çekirdeklerin tespit edilememesiyle açıklanmaktadır. Ayrıntılı sonuçlar ve tartışma teknik raporda yer almaktadır.
 
 | Küme | Yöntem | MAE | RMSE | Bias |
 |---|---|---|---|---|
@@ -89,35 +72,30 @@ Baseline: gri seviye → Otsu → 8-komşuluklu bağlı bileşen analizi → 50 
 | Test (15 kare) | Baseline | 7,47 | 8,45 | −7,47 |
 | Test (15 kare) | Nihai pipeline | 2,87 | 3,04 | −2,87 |
 
-## Commit geçmişi ve test güvenliği
+## Test Güvenliği ve Commit Geçmişi
 
-1. Birinci commit: veri seçimi, deneyler, doğrulama ve nihai pipeline (Bölüm 1–11).
-2. İkinci commit: nihai pipeline ve baseline kilitlendi, test tahminleri kaydedildi (Bölüm 12). Test referansları bu commit'e kadar okunmamıştır.
-3. Üçüncü commit: test değerlendirmesi, zamansal analiz ve README (Bölüm 13–14).
-
-`test_predictions_locked.csv` dosyası her iki yöntemin konfigürasyonunun SHA-256 özetini içerir. `run_test_evaluation.py` bu özetleri `final_pipeline.json` ile karşılaştırır ve eşleşmezse değerlendirmeyi durdurur.
+Ödevde istenen test güvenliği koşulu, commit geçmişi aracılığıyla belgelenmiştir. İlk commit veri seçimini, deneyleri, doğrulamayı ve nihai yöntemin belirlenmesini içermektedir. İkinci commit, nihai pipeline ile baseline yönteminin kilitlendiğini ve test tahminlerinin referanslar okunmadan kaydedildiğini göstermektedir. Test değerlendirmesi ve sonraki analizler bu commit'ten sonra eklenmiştir. `test_predictions_locked.csv` dosyası her iki yöntemin konfigürasyonuna ait SHA-256 özetlerini içermektedir. `run_test_evaluation.py` betiği bu özetleri `final_pipeline.json` dosyasıyla karşılaştırmakta ve bir uyuşmazlık bulunduğunda değerlendirmeyi durdurmaktadır.
 
 ## Dosyalar
 
-| Dosya | İçerik |
+| Dosya | Açıklama |
 |---|---|
-| `main.ipynb` | Bütün adımları sırasıyla çalıştıran not defteri. Gömülü görüntü çıktıları temizlenmiştir (Bölüm 18.5). |
-| `selected_frames.csv` | Seçilen kareler, veri grupları, test blokları, seed ve deneme sayıları. |
-| `dev_val_references.csv` | Geliştirme ve doğrulama karelerinin referans hücre sayıları. |
-| `baseline_min_area_dev.csv` | Baseline minimum alan eşiğinin geliştirme kümesinde seçimi. |
-| `experiments.csv` | 47 kontrollü deneyin yöntemleri, parametreleri ve geliştirme metrikleri (MAE, RMSE, Bias, tam doğru oran, süre). |
-| `experiment_configs.json` | Her deneyin tam konfigürasyonu. |
-| `experiments_log.txt` | Deney çalıştırmasının çıktı kaydı. |
-| `dev_visual_review.md` | Bütün geliştirme görüntülerinin görsel inceleme notları. |
-| `validation_results.csv` | Baseline ve üç aday pipeline'ın doğrulama metrikleri ve seçim. |
-| `validation_per_frame.csv` | Doğrulama kareleri için kare bazında tahminler. |
-| `final_pipeline.json` | Nihai pipeline ve baseline konfigürasyonları, seçim kuralı. |
-| `test_predictions_locked.csv` | Test referansları okunmadan kaydedilen baseline ve nihai pipeline tahminleri. |
-| `test_results.csv` | Kare bazında test sonuçları, özet metrikler ve blok bazında metrikler. |
-| `temporal_analysis.csv` | Test bloklarında ardışık karelerdeki sayım değişimleri. |
-| `figures/fig1_flowchart.png` | Şekil 1: nihai pipeline akış diyagramı. |
-| `figures/fig5_temporal.png` | Şekil 5: test bloklarında gerçek ve tahmin edilen hücre sayıları. |
-| `figures/fig_parameter_effects.png` | Parametrelerin geliştirme MAE ve Bias üzerindeki etkisi. |
-| `src/` | Seçim, referans, yöntem, değerlendirme, deney ve şekil modülleri. |
+| `main.ipynb` | Tüm adımları sırasıyla yeniden üreten not defteridir. Veri seti görüntülerinden üretilen gömülü çıktılar temizlenmiştir. |
+| `selected_frames.csv` | Seçilen kareleri, veri gruplarını, test bloklarını, seed değerini ve seçim deneme sayılarını içerir. |
+| `dev_val_references.csv` | Geliştirme ve doğrulama karelerinin referans hücre sayılarını içerir. |
+| `baseline_min_area_dev.csv` | Baseline yöntemi için minimum alan eşiğinin geliştirme kümesinde belirlenmesine ait sonuçları içerir. |
+| `experiments.csv` | 47 kontrollü deneyin yöntemlerini, parametrelerini ve geliştirme kümesi metriklerini içerir. |
+| `experiment_configs.json` | Her deneyin tam konfigürasyonunu içerir. |
+| `experiments_log.txt` | Deneylerin çalıştırılmasına ait çıktı kaydıdır. |
+| `dev_visual_review.md` | Geliştirme görüntülerinin görsel incelemesine ait notları içerir. |
+| `validation_results.csv` | Baseline ve üç aday pipeline'ın doğrulama metriklerini ve seçim sonucunu içerir. |
+| `validation_per_frame.csv` | Doğrulama kareleri için kare bazında tahminleri içerir. |
+| `final_pipeline.json` | Nihai pipeline ile baseline yönteminin konfigürasyonlarını ve seçim kuralını içerir. |
+| `test_predictions_locked.csv` | Test referansları okunmadan kaydedilen baseline ve nihai pipeline tahminlerini içerir. |
+| `test_results.csv` | Test kümesine ait kare bazında sonuçları, özet metrikleri ve blok bazında metrikleri içerir. |
+| `temporal_analysis.csv` | Test bloklarında ardışık kareler arasındaki sayım değişimlerini içerir. |
+| `error_analysis.csv` | Tespit edilemeyen, birleşmiş ve sahte nesnelere ait hata analizini içerir. |
+| `figures/` | Veri seti görüntüsü içermeyen şekilleri (akış diyagramı, zamansal grafik ve parametre etkileri) içerir. |
+| `src/` | Görüntü seçimi, referans okuma, görüntü işleme yöntemleri, değerlendirme, deneyler ve şekil üretimine ait modülleri içerir. |
 
-Not defteri çalıştırıldığında veri seti görüntülerinden üretilen diğer şekiller (Şekil 2, 3, 4, 6 ve kontrol şekilleri) yerel `figures/` klasörüne yazılır. Bu şekiller `.gitignore` ile repodan hariç tutulmuştur.
+Not defteri çalıştırıldığında veri seti görüntülerinden üretilen diğer şekiller yerel `figures/` klasörüne kaydedilmektedir. Bu şekiller `.gitignore` dosyası aracılığıyla depo dışında tutulmuştur.

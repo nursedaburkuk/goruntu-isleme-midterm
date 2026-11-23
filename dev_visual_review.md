@@ -1,8 +1,8 @@
-# Geliştirme görüntülerinin görsel incelemesi (Ödev Bölüm 10.6)
+# Geliştirme Görüntülerinin Görsel İncelemesi
 
-Baseline (E01) ve üç aday pipeline (A: E45, B: E41, C: E21) 10 geliştirme karesinin tamamında çalıştırılmış ve çıktılar görsel olarak incelenmiştir. Şekiller not defteri çalıştırıldığında `figures/fig_dev_check_*.png` dosyalarına üretilir. Bölüm 18.5 gereği bu şekiller repoya yüklenmemiştir.
+Ödevin 10.6. bölümü gereğince baseline yöntemi ile üç aday pipeline (A: E45, B: E41, C: E21) on geliştirme karesinin tamamında çalıştırılmış ve elde edilen çıktılar görsel olarak incelenmiştir. İncelemede kullanılan şekiller not defteri çalıştırıldığında `figures/fig_dev_check_*.png` dosyalarına kaydedilmektedir. Bu şekiller veri seti görüntülerinden üretildiği için ödevin 18.5. bölümü gereğince depoya yüklenmemiştir.
 
-## Kare bazında sayımlar
+## Kare Bazında Sayımlar
 
 | Kare | Referans | Baseline | A | B | C |
 |---|---|---|---|---|---|
@@ -17,11 +17,14 @@ Baseline (E01) ve üç aday pipeline (A: E45, B: E41, C: E21) 10 geliştirme kar
 | 81 | 20 | 26 | 22 | 22 | 22 |
 | 87 | 21 | 21 | 22 | 22 | 23 |
 
-## Gözlemler
+## Değerlendirme
 
-1. Baseline, ilk karelerde (0 ve 2) soluk hücrelerin büyük bölümünü bulamamaktadır. Sonraki karelerde ise bazı hücreleri parçalara bölerek fazla saymaktadır. Bu iki hata türü birbirini kısmen dengelediği için baseline'ın MAE değeri gerçek başarısından daha iyi görünmektedir.
-2. A ve B adaylarında 52–87 numaralı karelerdeki +1 hatanın ana nedeni, görüntünün sol kenarında kısmen görünen ve referansta işaretlenmemiş çekirdeğin bir nesne olarak sayılmasıdır.
-3. A ve B adaylarında 0, 32 ve 44 numaralı karelerde, çok soluk bir hücre bulunamamakta, buna karşılık sağ taraftaki soluk ve birbirine yakın hücre çifti düzensiz sınırlarla segmente edilmektedir. Bu iki etki bazı karelerde birbirini dengelemektedir.
-4. B adayındaki distance transform ve watershed ayırması, A adayından yalnızca 44 numaralı karede farklı sonuç vermiştir. Bu veride birbirine temas eden çekirdek sayısı az olduğu için ayırma işleminin etkisi sınırlıdır.
-5. C adayında (adaptif eşikleme) soluk hücrelerin çevresinde halka biçimli bölgeler oluşmakta ve bu hücrelerin sınırları çift kontur olarak görünmektedir. C adayının 55, 81 ve 87 numaralı karelerdeki +2 ve +3 hataları bu halka yapılarıyla birlikte görülmektedir.
-6. 87 numaralı karede referansta 45 piksellik küçük bir parça hücre olarak işaretlenmiştir. Bu parça minimum alan eşiğinin (300 piksel) altında kaldığı için hiçbir aday tarafından sayılmamaktadır.
+Baseline yöntemi ilk karelerde (0 ve 2) soluk çekirdeklerin büyük bölümünü tespit edememiştir. Sonraki karelerde ise bazı çekirdekleri parçalara bölerek gerçek sayıdan fazla sayım yapmıştır. Bu iki hata türü birbirini kısmen dengelediği için baseline yönteminin ortalama mutlak hatası, yöntemin gerçek başarısından daha iyi görünmektedir.
+
+A ve B adaylarının 52 ile 87 arasındaki karelerde gerçek sayıdan bir fazla sayım yapmasının temel nedeni, görüntünün sol kenarında kısmen görünen ve referansta işaretlenmemiş bir çekirdeğin nesne olarak sayılmasıdır. Aynı adaylarda 0, 32 ve 44 numaralı karelerde çok soluk bir çekirdeğin tespit edilemediği, buna karşılık sağ bölgedeki soluk ve birbirine yakın iki çekirdeğin düzensiz sınırlarla segmente edildiği gözlenmiştir. Bu iki etki bazı karelerde birbirini dengelemektedir.
+
+B adayında uygulanan distance transform ve watershed ile nesne ayırma, A adayından yalnızca 44 numaralı karede farklı sonuç vermiştir. Geliştirme karelerinde birbirine temas eden çekirdek sayısı az olduğu için ayırma işleminin etkisi sınırlı kalmıştır.
+
+C adayında kullanılan adaptif eşikleme, soluk çekirdeklerin çevresinde halka biçimli bölgeler oluşturmuş ve bu çekirdeklerin sınırları çift kontur olarak görülmüştür. C adayının 55, 81 ve 87 numaralı karelerde yaptığı iki ve üç hücrelik fazla sayımlar bu halka yapılarıyla birlikte gözlenmektedir.
+
+87 numaralı karede referansta 45 piksellik küçük bir parça hücre olarak işaretlenmiştir. Bu parça 300 piksellik minimum alan eşiğinin altında kaldığı için adayların hiçbiri tarafından sayılmamıştır.
